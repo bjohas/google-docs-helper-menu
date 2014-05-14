@@ -1,7 +1,11 @@
 google-docs-helper-menu
 =======================
 
-An attempt to creation a "helper menu" in google docs to help with common editing tasks.
+An attempt to create a "helper menu" in google docs to help with common editing tasks - initially just some tools for Zotero links. Unless you know a fair bit about Zotero (and read zotero-dev), and unless you know something about Google Apps Script, none of this will make any sense! Note also that the code is really just at a concept stage, to see what could be done by way of having some integration with Zotero and Google docs, and it is buggy, and definitely not ready for serious use. The code may well destroy your documents, and comes with no warranty whatsoever. You have been warned! 
+
+Happy to have conversations with people who want to discuss Zotero integration and Google docs, c.f. zotero-dev (at) googlegroups.
+
+From my post on zotero-dev: 
 
 I've some some further playing with Google Apps script, towards a "poor mans" integration of Zotero and Google docs (via scannable cite). Let me say up front that while what I have works for me, it's for a fairly specific use case, that may not be useful for everybody. It's mainly to implement a scannable cite workflow in Google docs, that's acceptable to my collaborators.
 
@@ -12,7 +16,5 @@ There's also a function that unpacks such links back into scannable cites. The i
 I know it's a specific use case, but it effectively means that my collaborators are now happy to use scannable cite, and that we can thus use scannable cite in our google document (with the added benefit of looking up the items in Zotero). 
 
 I know it's a long way from what could be done, and it's a specific use case, but it seems that there are quite a few things that aren't yet implemented in Google Apps script yet, and I couldn't find that many examples for Google Apps script (particularly for documents as opposed to spreadsheets). Hence trying something small, and see how that fares. One thing for instance is that Google apps script is really quite slow with large documents. Just getting a selection in a large document takes quite a bit of time!
-
-Happy to have conversations with people who want to discuss this, c.f. zotero-dev (at) googlegroups.
 
 Bjoern
