@@ -7,7 +7,7 @@ Happy to have conversations with people who want to discuss Zotero integration a
 
 From my post on zotero-dev: 
 
-I've some some further playing with Google Apps script, towards a "poor mans" integration of Zotero and Google docs (via scannable cite). Let me say up front that while what I have works for me, it's for a fairly specific use case, that may not be useful for everybody. It's mainly to implement a scannable cite workflow in Google docs, that's acceptable to my collaborators.
+I've done some some further playing with Google Apps script, towards a "poor man's" integration of Zotero and Google docs (via scannable cite). Let me say up front that while what I have works for me, it's for a fairly specific use case, that may not be useful for everybody. It's mainly to implement a scannable cite workflow in Google docs, that's acceptable to my collaborators.
 
 What I've done is to add a custom menu to Google documents, that will convert a scannable cite "{| ABC ||||zg...}" into a link (with text ABC) and the url pointing to zotero.org, with the actual scannable cite packed into a parameter. This makes the scannable cite neater, and helps you find the item on zotero.org if you want to check the reference.  (At the moment, links actually appear as {{ ABC }} with the "{{" and "}}" in a 5pt font. But that can be changed by just looking for links and examining them. I also have a work around to use Zotero stand alone with Chrome, where links don't go to zotero.org, but open in Zotero stand alone instead.)
 
