@@ -171,7 +171,7 @@ function zoteroLinkToCite(rangeElement) {
 Convert scannable cite to link. Important: We assume that the scannable cite is of the following form:
 {| anything :lib_id_1|||zg:lib_id_2:item_id}
 which is slightly non standard. If you know about zotero libraries, then you'll know about the two different kinds of library ids.
-They are both used to build different links.
+They are both used to build different links. "zg" will only work on groups, should add "zu" as well.
 
 lib_id_1 is used to create a zotero:// link, while lib_id_2 is used for the http://zotero.org link.
 
@@ -200,7 +200,7 @@ function zoteroCiteToLink(rangeElement) {
 	    thelength = rangeElement.getEndOffsetInclusive() -1;
 	}
 	var midpoint = parseInt(thelength/2);
-	//    DocumentApp.getUi().alert('Ranges.'+rangeElement.getStartOffset()+" - "+rangeElement.getEndOffsetInclusive()+", len="+thelength+", mp=" +midpoint);
+	// DocumentApp.getUi().alert('Ranges.'+rangeElement.getStartOffset()+" - "+rangeElement.getEndOffsetInclusive()+", len="+thelength+", mp=" +midpoint);
 	var url1 = "http://oer.educ.cam.ac.uk/zotero/select/"+item_code+"?r="+encodeURI(mytext);
 	var url2 = "http://zotero.org/groups/"+m[3]+"/items/itemKey/"+m[4];
 	rangeElement.getElement().editAsText().setLinkUrl(rangeElement.getStartOffset(), rangeElement.getStartOffset()+midpoint, url1);
