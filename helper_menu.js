@@ -37,6 +37,19 @@ function onOpen() {
 // https://developers.google.com/apps-script/reference/document/range
 // https://developers.google.com/apps-script/reference/document/range-element
 // https://developers.google.com/apps-script/reference/document/body  
+/*
+There are four functions:
+
+They convert:
+"Link to Scannable Cite" (Link to SC)
+or
+"Scannable Cite to Link" (SC to Link)
+
+either working on the "selection" (or from the current cursor),
+or
+working from the start of the document "from start".
+
+*/
 
 function zoteroLinkToSCselection() {
     zoteroUseSelection(false);
@@ -54,6 +67,10 @@ function zoteroSCToLinkfromstart() {
     zoteroFromStart(true);
 }
 
+/*
+This function return the pattern to be matched. Adapt this if you want to 
+match different patterns.
+*/
 function getPattern(pack) {
     // What pattern to look for.
     // if pack=true, look for {| ... |||....} to turn into links
@@ -64,6 +81,10 @@ function getPattern(pack) {
 	return '\{\{([^\n\}]*)\}\}';
     }
 }
+
+/*
+The next two functions determine an appropriate range element, that contains the link or scannable cite to be worked on.
+*/
 
 function zoteroUseSelection(pack) {
     var pattern = getPattern(pack);
@@ -123,7 +144,12 @@ function zoteroFromStart(pack) {
     }
 }
 
-
+/*
+The next two functions convert the range element from scannable cite to link, and vice versa.
+*/
+/* Convert Links to scannable cite:
+We expect that the text is stored in the parameter "r" (for reference), and that it's url encoded.
+*/
 function zoteroLinkToCite(rangeElement) {
     if (rangeElement.isPartial()) {
 	var mytext =  rangeElement.getElement().getText();
@@ -141,6 +167,21 @@ function zoteroLinkToCite(rangeElement) {
 
 }
 
+/*
+Convert scannable cite to link. Important: We assume that the scannable cite is of the following form:
+{| anything :lib_id_1|||zg:lib_id_2:item_id}
+which is slightly non standard. If you know about zotero libraries, then you'll know about the two different kinds of library ids.
+They are both used to build different links.
+
+lib_id_1 is used to create a zotero:// link, while lib_id_2 is used for the http://zotero.org link.
+
+Note that it's not possible to embed zotero:// links into google docs. Hence I have set up a redirects cript on our site,
+http://oer.educ.cam.ac.uk/zotero/select/ which converts http:// links into zotero:// links. If you use Chrome
+such links will trigger an external protocal request, which can be used with  Zotero-stand-alone. 
+It should work with any browser that allows external protocal requests.
+If you have the Zotero pane installed in firefox, this may not work in Firefox. 
+
+*/
 function zoteroCiteToLink(rangeElement) { 
     if (rangeElement.isPartial()) {
 	// DocumentApp.getUi().alert('The character range begins at ' + rangeElement.getStartOffset()+'. The character range ends at ' + rangeElement.getEndOffsetInclusive());
