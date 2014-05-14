@@ -18,4 +18,5 @@ I know it's a specific use case, but it effectively means that my collaborators 
 I know it's a long way from what could be done, and it's a specific use case, but it seems that there are quite a few things that aren't yet implemented in Google Apps script yet, and I couldn't find that many examples for Google Apps script (particularly for documents as opposed to spreadsheets). Hence trying something small, and see how that fares. One thing for instance is that Google apps script is really quite slow with large documents. Just getting a selection in a large document takes quite a bit of time!
 
 Bjoern
+
 http://www.sciencemedianetwork.org/wiki/Zotero
